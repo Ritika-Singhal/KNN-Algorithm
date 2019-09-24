@@ -80,9 +80,9 @@ class HyperparameterTuner:
         Used k ranging from 1 to 30 and incremented by 2. Used f1-score to compare different models.
 
         :param distance_funcs: dictionary of distance functions used to calculate the distance.
-        :param x_train: List[List[int]] training data set to train your KNN model
-        :param y_train: List[int] train labels to train your KNN model
-        :param x_val:  List[List[int]] Validation data set will be used on your KNN predict function to produce
+        :param x_train: List[List[int]] training data set to train KNN model
+        :param y_train: List[int] train labels to train KNN model
+        :param x_val:  List[List[int]] Validation data set will be used on KNN predict function to produce
             predicted labels and tune k and distance function.
         :param y_val: List[int] validation labels
 
@@ -117,11 +117,11 @@ class HyperparameterTuner:
         Here we have 3 hyperparameters i.e. k, distance_function and scaler.
 
         :param distance_funcs: dictionary of distance functions used to calculate the distance.
-        :param scaling_classes: dictionary of scalers you will use to normalized your data.
-        :param x_train: List[List[int]] training data set to train your KNN model
-        :param y_train: List[int] train labels to train your KNN model
+        :param scaling_classes: dictionary of scalers used to normalized data.
+        :param x_train: List[List[int]] training data set to train KNN model
+        :param y_train: List[int] train labels to train KNN model
         :param x_val: List[List[int]] validation data set used on KNN predict function to produce predicted
-            labels and tune your k, distance function and scaler.
+            labels and tune k, distance function and scaler.
         :param y_val: List[int] validation labels
 
         Found(tune) best k, distance_funtion, scaler and model (an instance of KNN) and assign to self.best_k,

@@ -9,7 +9,7 @@ def f1_score(real_labels, predicted_labels):
     :param predicted_labels: List[int]
     :return: float
     """
-    assert len(real_labels) == len(predicted_labels), NotImplementedError
+    assert len(real_labels) == len(predicted_labels)
     
     f1_score = float(2*sum(np.multiply(real_labels, predicted_labels)))/(sum(real_labels) + sum(predicted_labels))
     return f1_score

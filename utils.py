@@ -1,10 +1,9 @@
 import numpy as np
 from knn import KNN
 
-# TODO: implement F1 score
+
 def f1_score(real_labels, predicted_labels):
     """
-    Information on F1 score - https://en.wikipedia.org/wiki/F1_score
     :param real_labels: List[int]
     :param predicted_labels: List[int]
     :return: float
@@ -17,7 +16,6 @@ def f1_score(real_labels, predicted_labels):
 
 class Distances:
     @staticmethod
-    # TODO
     def minkowski_distance(point1, point2):
         """
         :param point1: List[float]
@@ -28,7 +26,6 @@ class Distances:
         return distance
         
     @staticmethod
-    # TODO
     def euclidean_distance(point1, point2):
         """
         :param point1: List[float]
@@ -39,7 +36,6 @@ class Distances:
         return distance
         
     @staticmethod
-    # TODO
     def inner_product_distance(point1, point2):
         """
         :param point1: List[float]
@@ -50,7 +46,6 @@ class Distances:
         return distance
     
     @staticmethod
-    # TODO
     def cosine_similarity_distance(point1, point2):
         """
        :param point1: List[float]
@@ -61,7 +56,6 @@ class Distances:
         return distance
         
     @staticmethod
-    # TODO
     def gaussian_kernel_distance(point1, point2):
         """
        :param point1: List[float]
@@ -79,7 +73,7 @@ class HyperparameterTuner:
         self.best_scaler = None
         self.best_model = None
 
-    # TODO: find parameters with the best f1 score on validation dataset
+    # Find parameters with the best f1 score on validation dataset
     def tuning_without_scaling(self, distance_funcs, x_train, y_train, x_val, y_val):
         """
         Tried different distance function implemented above, and found the best k.
@@ -92,7 +86,7 @@ class HyperparameterTuner:
             predicted labels and tune k and distance function.
         :param y_val: List[int] validation labels
 
-        Find(tune) best k, distance_function and model (an instance of KNN) and assign to self.best_k,
+        Found(tune) best k, distance_function and model (an instance of KNN) and assign to self.best_k,
         self.best_distance_function and self.best_model respectively.
         NOTE: self.best_scaler will be None
 
@@ -113,12 +107,11 @@ class HyperparameterTuner:
         f1score_and_model.sort(key= lambda x, list=['euclidean', 'minkowski', 'gaussian', 'inner_prod',
                         'cosine_dist']: (x[0], list[::-1].index(x[1]), (-1)*x[2].k), reverse=True)
 
-        # You need to assign the final values to these variables
         self.best_k = f1score_and_model[0][2].k
         self.best_distance_function = f1score_and_model[0][1]
         self.best_model = f1score_and_model[0][2]
 
-    # TODO: find parameters with the best f1 score on validation dataset, with normalized data
+    # Find parameters with the best f1 score on validation dataset, with normalized data
     def tuning_with_scaling(self, distance_funcs, scaling_classes, x_train, y_train, x_val, y_val):
         """
         Here we have 3 hyperparameters i.e. k, distance_function and scaler.
@@ -157,7 +150,6 @@ class HyperparameterTuner:
                         'minkowski', 'gaussian', 'inner_prod','cosine_dist']: (x[0], list_s[::-1].index(x[1]), 
                         list_d[::-1].index(x[2]), (-1)*x[3].k), reverse=True)
 
-        # You need to assign the final values to these variables
         self.best_k = f1score_and_model[0][3].k
         self.best_distance_function = f1score_and_model[0][2]
         self.best_scaler = f1score_and_model[0][1]
@@ -168,15 +160,9 @@ class NormalizationScaler:
     def __init__(self):
         pass
 
-    # TODO: normalize data
     def __call__(self, features):
         """
         Normalize features for every sample
-
-        Example
-        features = [[3, 4], [1, -1], [0, 0]]
-        return [[0.6, 0.8], [0.707107, -0.707107], [0, 0]]
-
         :param features: List[List[float]]
         :return: List[List[float]]
         """

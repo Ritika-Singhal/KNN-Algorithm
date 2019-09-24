@@ -1,11 +1,5 @@
-import import_ipynb
 import numpy as np
 from knn import KNN
-
-############################################################################
-# DO NOT MODIFY ABOVE CODES
-############################################################################
-
 
 # TODO: implement F1 score
 def f1_score(real_labels, predicted_labels):
